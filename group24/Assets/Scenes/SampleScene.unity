@@ -1777,7 +1777,7 @@ GameObject:
   - component: {fileID: 1694990124}
   - component: {fileID: 1694990123}
   m_Layer: 5
-  m_Name: emoji
+  m_Name: critic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1834,7 +1834,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Choose the emoji that describes your mood in a best way today:'
+  m_Text: Do you feel critisising today?
 --- !u!222 &1694990124
 CanvasRenderer:
   m_ObjectHideFlags: 0
