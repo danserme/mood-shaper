@@ -37,7 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scenes\ColorModifier.cs" />
-     <Compile Include="Assets\Scenes\Planet.cs" />
+     <Compile Include="Assets\Scenes\Shape.cs" />
+     <Compile Include="Assets\Scenes\ShapeEditor.cs" />
+     <Compile Include="Assets\Scenes\ShapeGenerator.cs" />
+     <Compile Include="Assets\Scenes\ShapeSettings.cs" />
      <Compile Include="Assets\Scenes\TerrainFace.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.22f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

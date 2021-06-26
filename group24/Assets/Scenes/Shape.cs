@@ -3,38 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Planet : MonoBehaviour {
+public class Shape : MonoBehaviour {
 
     
     public Slider s_Res;
+    public Slider s_Rad;
     int resolution = 2;
-
+    public ShapeSettings shapeSettings;
+    // public ColorSet colorSets;
+    public ShapeGenerator shapeGenerator;
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
 
     void Start()
     {
-        s_Res.maxValue = 256;
+        s_Res.maxValue = 50;
         
         s_Res.minValue = 2;
+
+        s_Rad.maxValue = 10;
+        
+        s_Rad.minValue = .5f;
     }
 
      void Update()
     {
         resolution = (int) s_Res.value;
+        shapeSettings.shapeRadius = s_Rad.value;
         Initialize();
         GenerateMesh();
     }
      
 	private void OnValidate()
 	{
-        Initialize();
-        GenerateMesh();
+        GeneratePlanet();
 	}
 
 	void Initialize()
-    {
+    {   
+        shapeGenerator = new ShapeGenerator(shapeSettings);
+
         if (meshFilters == null || meshFilters.Length == 0)
         {
             meshFilters = new MeshFilter[6];
@@ -55,10 +64,22 @@ public class Planet : MonoBehaviour {
                 meshFilters[i].sharedMesh = new Mesh();
             }
 
-            terrainFaces[i] = new TerrainFace(meshFilters[i].sharedMesh, resolution, directions[i]);
+            terrainFaces[i] = new TerrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
         }
     }
-
+    public void  GeneratePlanet() {
+        Initialize();
+        GenerateMesh();
+        // GenerateColors();
+    }
+    public void OnShapeSettingsUpdated() {
+        Initialize();
+        GenerateMesh();
+    }
+    // public void OnColorSettingsUpdated() {
+    //     Initialize();
+    //     GenerateColors();
+    // }
     void GenerateMesh()
     {
         foreach (TerrainFace face in terrainFaces)
@@ -66,4 +87,9 @@ public class Planet : MonoBehaviour {
             face.ConstructMesh();
         }
     }
+    // void GenerateColors() {
+    //     foreach (MeshFilter m in meshFilters) {
+    //         m.GetComponent<MeshRenderer>().sharedMaterial.color = colorSets.meshColor;
+    //     }
+    // }
 }
