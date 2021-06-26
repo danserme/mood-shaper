@@ -3,29 +3,31 @@ using UnityEngine.UI;
 
 public class ColorModifier : MonoBehaviour
 {
-    float m_Hue;
-    float m_Saturation;
-    float m_Value;
-    public Slider m_SliderHue, m_SliderSaturation, m_SliderValue;
-    public Renderer m_Renderer;
+    float Hue;
+    float Saturation;
+    float Value;
+    public Slider SliderHue, SliderSaturation, SliderValue;
+    // public Renderer m_Renderer;
+    public Material material;
 
     void Start()
     {
-        m_SliderHue.maxValue = 1;
-        m_SliderSaturation.maxValue = 1;
-        m_SliderValue.maxValue = 1;
+        SliderHue.maxValue = 1;
+        SliderSaturation.maxValue = 1;
+        SliderValue.maxValue = 1;
 
-        m_SliderHue.minValue = 0;
-        m_SliderSaturation.minValue = 0;
-        m_SliderValue.minValue = 0;
+        SliderHue.minValue = 0;
+        SliderSaturation.minValue = 0;
+        SliderValue.minValue = 0;
     }
 
     void Update()
     {
-        m_Hue = m_SliderHue.value;
-        m_Saturation = m_SliderSaturation.value;
-        m_Value = m_SliderValue.value;
-        m_Renderer.material.color = Color.HSVToRGB(m_Hue, m_Saturation, m_Value);
+        Hue = SliderHue.value;
+        Saturation = SliderSaturation.value;
+        Value = SliderValue.value;
+        material.color = Color.HSVToRGB(Hue, Saturation, Value);
+        // m_Renderer.material.color = Color.HSVToRGB(m_Hue, m_Saturation, m_Value);
     }
 }
 
