@@ -8,6 +8,8 @@ public class Shape : MonoBehaviour {
     
     public Slider s_Res;
     public Slider s_Rad;
+    public Slider s_Rough;
+    public Slider s_Strength;
     int resolution = 2;
     public ShapeSettings shapeSettings;
     public ShapeGenerator shapeGenerator;
@@ -20,14 +22,22 @@ public class Shape : MonoBehaviour {
         s_Res.maxValue = 50;
         s_Res.minValue = 2;
 
-        s_Rad.maxValue = 10;
+        s_Rad.maxValue = 3;
         s_Rad.minValue = .5f;
+
+        s_Rough.maxValue = 10;
+        s_Rough.minValue = 0;
+
+        s_Strength.maxValue = 10;
+        s_Strength.minValue = -10;
     }
 
      void Update()
     {
         resolution = (int) s_Res.value;
         shapeSettings.shapeRadius = s_Rad.value;
+        shapeSettings.noiseSettings.roughness = s_Rough.value;
+        shapeSettings.noiseSettings.strength = s_Strength.value;
         Initialize();
         GenerateMesh();
     }

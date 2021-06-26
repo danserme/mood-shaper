@@ -27,11 +27,6 @@ public class ColorModifier : MonoBehaviour
         Saturation = SliderSaturation.value;
         Value = SliderValue.value;
         material.color = Color.HSVToRGB(Hue, Saturation, Value);
-        // m_Renderer.material.color = Color.HSVToRGB(m_Hue, m_Saturation, m_Value);
+        // m_Renderer.material.color = Color.HSVToRGB(Hue, Saturation, Value);
     }
 }
-
-// [CreateAssetMenu()]
-// public class ColorSet : ScriptableObject {
-//     public Color meshColor;
-// }

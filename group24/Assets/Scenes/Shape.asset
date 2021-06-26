@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f129faa40f59d45b5894e2445ff55aa6, type: 3}
   m_Name: Shape
   m_EditorClassIdentifier: 
-  shapeRadius: 1.21
+  shapeRadius: 1
+  noiseSettings:
+    strength: 0
+    roughness: 0
+    center: {x: 0, y: 0, z: 0}

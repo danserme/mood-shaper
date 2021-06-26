@@ -37,6 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scenes\ColorModifier.cs" />
+     <Compile Include="Assets\Scenes\Noise.cs" />
+     <Compile Include="Assets\Scenes\NoiseFilter.cs" />
+     <Compile Include="Assets\Scenes\NoiseSettings.cs" />
      <Compile Include="Assets\Scenes\Shape.cs" />
      <Compile Include="Assets\Scenes\ShapeEditor.cs" />
      <Compile Include="Assets\Scenes\ShapeGenerator.cs" />

@@ -6,4 +6,5 @@ using UnityEngine.UI;
 [CreateAssetMenu()]
 public class ShapeSettings : ScriptableObject {
     public float shapeRadius = 1;
+    public NoiseSettings noiseSettings;
 }
