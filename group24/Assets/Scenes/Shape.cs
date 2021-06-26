@@ -10,7 +10,6 @@ public class Shape : MonoBehaviour {
     public Slider s_Rad;
     int resolution = 2;
     public ShapeSettings shapeSettings;
-    // public ColorSet colorSets;
     public ShapeGenerator shapeGenerator;
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
@@ -19,11 +18,9 @@ public class Shape : MonoBehaviour {
     void Start()
     {
         s_Res.maxValue = 50;
-        
         s_Res.minValue = 2;
 
         s_Rad.maxValue = 10;
-        
         s_Rad.minValue = .5f;
     }
 
@@ -70,16 +67,12 @@ public class Shape : MonoBehaviour {
     public void  GeneratePlanet() {
         Initialize();
         GenerateMesh();
-        // GenerateColors();
     }
     public void OnShapeSettingsUpdated() {
         Initialize();
         GenerateMesh();
     }
-    // public void OnColorSettingsUpdated() {
-    //     Initialize();
-    //     GenerateColors();
-    // }
+
     void GenerateMesh()
     {
         foreach (TerrainFace face in terrainFaces)
@@ -87,9 +80,5 @@ public class Shape : MonoBehaviour {
             face.ConstructMesh();
         }
     }
-    // void GenerateColors() {
-    //     foreach (MeshFilter m in meshFilters) {
-    //         m.GetComponent<MeshRenderer>().sharedMaterial.color = colorSets.meshColor;
-    //     }
-    // }
+
 }
